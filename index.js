@@ -4,7 +4,7 @@ import { MongoClient } from 'mongodb';
 import path from 'path';
  require("dotenv").config(); 
  const app = express();
- app.use(express.static(path.join(__dirname, '/build')))
+//  app.use(express.static(path.join(__dirname, '/build')))
 app.use(bodyParser.json());
 // this is the boiler connection function withDB.
 const withDB = async (operations, res) => {
@@ -67,9 +67,9 @@ app.post('/api/articles/:name/add-comment', (req, res) => {
 });
 // All the api route requests should be caught and passed to our app.
 // Allows backend to function properly. Corrects call to the correct routes are passed.
-app.get('*' , (req, res)=> {
-    res.sendFile(path.join(__dirname + '/build/index.html'));
+// app.get('*' , (req, res)=> {
+//     res.sendFile(path.join(__dirname + '/build/index.html'));
 
-})
+// })
 app.listen(process.env.PORT ||8000, () => console.log(process.env.PORT));
 
